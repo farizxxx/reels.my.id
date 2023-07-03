@@ -1,0 +1,69 @@
+baseURL = 'https://reels.my.id/'
+languageCode = 'en-US'
+defaultContentLanguage = 'en-us'
+title = 'reels.my.id' # Title on Meta Tags
+paginate = 10
+theme = 'ctheme'
+enableRobotsTXT = true
+disableKinds = ['section', 'posts']
+disableHugoGeneratorInject = true
+
+[permalinks]
+  posts = '/:title/'
+  pages = '/:title/'
+
+
+[taxonomies]
+  category = 'categories'
+
+[outputs]
+  page = ['HTML']
+  home = ['HTML','RSS']
+  section = ['HTML']
+  taxonomyTerm = ['HTML']
+  taxonomy = ['HTML']
+
+[outputFormats]
+  [outputFormats.RSS]
+    mediatype = 'application/rss'
+    baseName = 'rss'    
+
+[params]
+  title = 'reels.my.id' # Title on Header
+  tagline = 'reels.my.id'
+  description = 'Informasi terbaru tentang kehidupan berumah tangga'
+  recentposts = 10 
+
+[menu]
+
+
+
+  [[menu.main]]
+    identifier = 'home'
+    name = 'Home'
+    url = '/'
+    weight = 1
+
+  [[menu.main]]
+    identifier = 'categories'
+    name = 'Categories'
+    url = '/categories/'
+    weight = 2
+
+  [[menu.main]]
+    identifier = 'about'
+    name = 'About'
+    url = '/about/'
+    weight = 3
+
+  [[menu.main]]
+    identifier = 'privacy-policy'
+    name = 'Privacy Policy'
+    url = '/privacy-policy/'
+    weight = 4
+
+  [[menu.main]]
+    identifier = 'dmca'
+    name = 'DMCA'
+    url = '/dmca/'
+    weight = 5

@@ -1,0 +1,979 @@
+:root {
+    --body-bg-color: #03a9f4;
+    --bg-color: #1e73be;
+    --text-color: #007db6;
+    --white: #ffffff;
+  }
+
+
+/* ------------------------------------------- START Reset CSS ------------------------------------------- */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    display: block;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+caption,
+th,
+td {
+    font-weight: normal;
+    text-align: left;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+}
+
+blockquote,
+q {
+    quotes: """";
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+a:hover,
+a:active {
+    outline: 0;
+}
+
+a img {
+    border: 0;
+}
+
+.clearfix {
+    clear: both
+}
+
+/* ------------------------------------------- START GLOBAL CSS ------------------------------------------- */
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: none;
+}
+
+h1 {
+    font-size: 18px;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+h4 {
+    font-size: 14px;
+}
+
+h5 {
+    font-size: 12px;
+}
+
+h6 {
+    font-size: 12px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+p img {
+    padding: 0;
+    max-width: 100%;
+}
+
+.container {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.alignleft {
+    float: left;
+}
+
+.alignright {
+    float: right;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+img.alignleft {
+    margin: 5px 15px 10px 0;
+}
+
+img.alignright {
+    margin: 5px 0 10px 10px;
+}
+
+img.aligncenter {
+    margin: 10px auto;
+}
+
+.wp-caption {
+    text-align: center;
+    border-bottom: 1px solid #DADADA;
+    background-color: #fff;
+    padding-top: 5px;
+    margin-bottom: 10px !important;
+    max-width: 100%;
+}
+
+.wp-caption img {
+    max-width: 100%;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 18px;
+    padding: 0 4px 5px;
+    margin: 0;
+}
+
+/* ------------------------------------------- START Layout CSS ------------------------------------------- */
+
+body {
+    background: var(--body-bg-color);
+    font: 16px Arial, Helvetica, sans-serif;
+    color: #474747;
+}
+
+#wrap {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+#main {
+    max-width: 100%;
+    padding: 10px;
+}
+
+#content {
+    float: left;
+    width: 60%;
+    margin-right: 2%;
+}
+
+#sidebar {
+    float: right;
+    width: 38%;
+}
+
+/* ------------------------------------------- START POST CSS ------------------------------------------- */
+
+.post {
+    border-bottom: 1px solid #efefef;
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.post h2 {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+.post h2 a:hover {
+    text-decoration: none;
+}
+
+.post:first-child {
+    border-top: 1px solid #efefef;
+}
+
+.post .thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.post-thumb {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 0 15px 0 0;
+    border-radius: 8px;
+}
+
+.post p {
+    line-height: 18px;
+}
+
+/* ------------------------------------------- START Entry CSS ------------------------------------------- */
+
+.entry img {
+    max-width: 570px;
+}
+
+.entry p {
+    line-height: 20px;
+}
+
+.entry blockquote {
+    margin: 20px 20px;
+    padding: 0 30px 0 20px;
+    overflow: hidden;
+    border-left: 10px solid #F7F7F7;
+}
+
+.entry ul,
+.entry ol {
+    margin: 0 0 5px 3em;
+}
+
+.entry ol {
+    list-style-type: decimal;
+}
+
+.entry ul {
+    list-style-type: square;
+}
+
+.entry ul ul,
+.entry ul ol,
+.entry ol ol,
+.entry ol ul {
+    margin: 0 0 0 20px;
+}
+
+h1.stitle {
+    color: #4b7eaf;
+    font-size: 16px;
+    line-height: 18px;
+    margin: 10px 0;
+}
+
+.entry h2,
+.entry h3,
+.entry h4 {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.entry table {
+    width: 100%;
+    border: 1px solid #e9e9e9;
+    margin: 1.0em 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.entry table th {
+    padding: 6px 3px;
+    background: #eee;
+    border: 1px solid #e9e9e9;
+    text-shadow: 1px 1px #fff;
+}
+
+.entry table td {
+    padding: 6px 10px 3px 10px;
+    border: 1px solid #e9e9e9;
+}
+
+.entry .ads {
+    margin-bottom: 10px;
+    max-width: 336px;
+    display: block;
+}
+
+.entry .ads span {
+    font-size: 11px;
+    margin-bottom: 5px;
+    text-align: left;
+    display: block;
+}
+
+.reviewsnip {
+    background: #efefef;
+    font-size: 11px;
+    padding: 5px 10px;
+    float: left;
+}
+
+/* ------------------------------------------- START Share CSS ------------------------------------------- */
+
+.social-container {
+    margin: 15px 0;
+    width: 100%;
+}
+
+.SocialCustomMenu {
+    margin: 0;
+}
+
+.SocialCustomMenu span {
+    display: inline;
+    text-decoration: none;
+    font-size: 0.95em;
+}
+
+.SocialCustomMenu a,
+.SocialCustomMenu a:visited {
+    display: inline;
+    color: white !important;
+    text-decoration: none;
+    font-size: 0.95em;
+}
+
+.social-container .twitter {
+    background-color: #00a0d1;
+}
+
+.social-container .facebook {
+    background-color: #3b5998;
+}
+
+.social-container .googleplus {
+    background-color: #db4a39;
+}
+
+.social-container .sharetext {
+    background: #efefef;
+    color: #333 !important;
+}
+
+/* ------------------------------------------- START Related CSS ------------------------------------------- */
+
+.related_posts {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.related_posts .thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.related_posts h3 {
+    background: #efefef;
+    font-size: 13px;
+    padding: 4px 10px;
+}
+
+.related_posts ul {
+    margin: 10px 0;
+}
+
+.related_posts ul li {
+    padding: 1%;
+    width: 98%;
+    display: inline-block;
+    overflow: hidden;
+    margin-bottom: 5px;
+    border: 1px solid #efefef;
+}
+
+.related_posts h4 {
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 5px;
+}
+
+.related_posts p {
+    margin: 0;
+}
+
+.related_posts .relatedcontent {
+    float: left;
+    overflow: hidden;
+}
+
+/* ------------------------------------------- START Sidebar CSS ------------------------------------------- */
+
+#sidebar h3.title {
+    height: 26px;
+    border-bottom: 3px solid #dfdfdf;
+    line-height: 26px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+#sidebar h3.title span {
+    line-height: 26px;
+    padding: 0px 10px;
+    color: #ffffff;
+}
+
+#sidebar .widget {
+    margin-bottom: 15px;
+}
+
+#sidebar .widget ul {
+    padding: 5px 0 0 0;
+}
+
+#sidebar .widget ul li {
+    background: url(/images/list.png) no-repeat scroll 5px 10px transparent;
+    padding: 4px 4px 4px 15px;
+    border-bottom: 1px solid #efefef;
+}
+
+#sidebar table {
+    width: 100%;
+    font-size: 90%;
+    border: 1px solid #efefef;
+    border-bottom: none;
+    border-right: none;
+}
+
+#sidebar table td {
+    padding: 2px 3px;
+    border-right: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+}
+
+#sidebar .widget_ads {
+    margin: 5px 0;
+}
+
+/* ------------------------------------------- START Footer CSS ------------------------------------------- */
+
+#footer {
+    width: 100%;
+    background: #F2F2F2;
+    border-top: 1px solid #e2e2e2;
+    font-size: 12px;
+}
+
+#footer .inner {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+#footer .copyright {
+    color: #666;
+}
+
+#footer .copyright a {
+    color: #666;
+}
+
+#footer .menu {
+    float: right;
+    width: 430px;
+}
+
+#footer .menu ul li {
+    float: right;
+    border-left: 1px solid #ccc;
+    padding: 0 10px;
+}
+
+#footer .menu ul li:last-child {
+    border: none;
+}
+
+#footer .menu ul li a {
+    line-height: 15px;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #666;
+}
+
+#footer .menu ul li a:hover {
+    text-decoration: none;
+    color: #666;
+}
+
+/* ------------------------------------------- START Menu CSS ------------------------------------------- */
+
+nav select {
+    display: none;
+    border: 1px solid #dfdfdf;
+    padding: 3px;
+}
+
+#main-menu {
+    width: 100%;
+    height: 35px;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+}
+
+#main-menu .ihome {
+    float: left;
+    margin: 5px 10px;
+    display: inline;
+}
+
+#main-menu .main-menu {
+    padding: 9px 0;
+    text-align: left;
+}
+
+#main-menu .main-menu ul {
+    width: 100%;
+}
+
+#main-menu .main-menu li {
+    float: left;
+    border-right: 1px solid #ffffff;
+}
+
+#main-menu .main-menu li.last {
+    border-right: none;
+}
+
+#main-menu .main-menu li a {
+    color: #ffffff;
+    padding: 0 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+#main-menu .main-menu li a:hover {
+    text-decoration: none;
+    color: #ccc;
+}
+
+#main-menu .main-menu li li a,
+#main-menu .main-menu li li a:link,
+#main-menu .main-menu li li a:visited {
+    background: #dfdfdf;
+    color: #000;
+    position: relative;
+    text-transform: uppercase;
+    width: 138px;
+    line-height: 32px;
+    padding: 0px 10px;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+#main-menu .main-menu li li:first-child {
+    border: none;
+}
+
+#main-menu .main-menu li li {
+    border: none;
+}
+
+#main-menu .main-menu li ul {
+    height: auto;
+    left: -9999px;
+    position: absolute;
+    width: 160px;
+    z-index: 9999;
+    margin: 0;
+    padding-top: 14px;
+}
+
+#main-menu .main-menu li ul a {
+    width: 140px;
+}
+
+#main-menu .main-menu li ul ul {
+    margin: -33px 0 0 159px;
+}
+
+#main-menu .main-menu li:hover>ul {
+    left: auto;
+}
+
+#main-menu .main-menu li.current-menu-item a,
+#main-menu .main-menu li.current-post-parent a {
+    color: #ffffff;
+}
+
+/* ------------------------------------------- START Pagenavi CSS ------------------------------------------- */
+
+.Nav {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.Nav a {
+    border: 1px solid #ddd;
+    color: #000 !important;
+    background: #f9f9f9;
+    padding: 6px;
+}
+
+.Nav a:visited {
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+}
+
+.Nav a:hover {
+    background: #dfdfdf;
+    text-decoration: none;
+}
+
+.Nav span {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    margin-right: 3px;
+    padding: 6px 5px;
+}
+
+.Nav .on {
+    background: #dfdfdf;
+    border: 1px solid #ccc;
+    padding: 6px;
+}
+
+/* ------------------------------------------- START Other CSS ------------------------------------------- */
+
+h3.reply-title {
+    background: #efefef;
+    font-size: 13px;
+    padding: 5px 10px;
+}
+
+.breadcrumbs {
+    background: #ECEEF5;
+    font-size: 14px;
+    padding: 10px 10px;
+    text-transform: capitalize;
+    font-weight: normal;
+}
+
+#wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon:before {
+    content: "\f160";
+    color: #02CA02;
+    top: 3px;
+}
+
+#wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon {
+    transform: rotate(45deg);
+}
+
+.arpw-ul {
+    list-style: none;
+    padding: 0;
+}
+
+.arpw-li {
+    margin-bottom: 10px;
+}
+
+.arpw-time {
+    display: block;
+    color: #aaa;
+}
+
+.arpw-clearfix:before,
+.arpw-clearfix:after {
+    content: "";
+    display: table;
+}
+
+.arpw-clearfix:after {
+    clear: both;
+}
+
+.arpw-clearfix {
+    zoom: 1;
+}
+
+#main-menu,
+#sidebar h3.title,
+#main-menu .main-menu li li a:hover {
+    background-color: var(--bg-color)
+}
+
+a:link,
+a:visited,
+a:hover,
+a:focus,
+h1.stitle {
+    color: var(--text-color)
+}
+
+
+.share {
+    width: 100%;
+    text-align: center;
+}
+
+.share a:first-child {
+    border-radius: 4px 0 0 4px;
+}
+
+.share a:last-child {
+    border-radius: 0 4px 4px 0
+}
+
+.share a {
+    width: 20%;
+    height: 40px;
+    display: block;
+    font-size: 24px;
+    color: #fff;
+    -webkit-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+    float: left
+}
+
+.share a svg {
+    width: 24px;
+    height: 24px;
+    margin-top: 7px
+}
+
+.share a svg path {
+    fill: #fff
+}
+
+.facebook {
+    background: #3b5998;
+}
+
+.twitter {
+    background: #55acee
+}
+
+.pinterest {
+    background: #cb2027
+}
+
+.whatsapp {
+    background: #25d366
+}
+
+.telegram {
+    background: #358dd1
+}
+
+#searchform {
+    margin-top: 15px;
+}
+/* ------------------------------------------- START Responsive CSS ------------------------------------------- */
+
+@media only screen and (max-width: 769px) {
+
+    img,
+    video,
+    object {
+        max-width: 100%;
+    }
+
+    #wrap {
+        width: 96%;
+    }
+
+    #main {
+        padding: 0;
+    }
+
+    #main {
+        width: 96%;
+        padding: 2%;
+    }
+
+    #mainmenu,
+    #footer {
+        width: 100%;
+    }
+
+    #content {
+        margin: 0;
+    }
+
+    #content {
+        width: 60%;
+        margin-right: 2%;
+    }
+
+    #content img {
+        max-width: 100%;
+    }
+
+    #sidebar {
+        width: 38%;
+    }
+
+    .breadcrumbs,
+    .wp-caption {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    #wrap,
+    #main {
+        width: 100%;
+    }
+
+    #main {
+        padding: 0;
+    }
+
+    #mainmenu,
+    .entry,
+    .wp-caption,
+    #footer .copyright,
+    #footer .menu {
+        width: 100%;
+    }
+
+    #footer .menu ul li {
+        float: left;
+        border-right: 1px solid #ccc;
+        border-left: none;
+    }
+
+    #footer .menu ul li:first-child {
+        float: left;
+        border-right: 1px solid #ccc;
+        border-left: none;
+        padding-left: 0;
+    }
+
+    #sidebar,
+    #content,
+    #footer,
+    .breadcrumbs {
+        width: 96%;
+        padding: 2% 2%;
+        margin: 0;
+    }
+
+    .breadcrumbs {
+        margin-top: 10px;
+    }
+
+    .related_posts ul li {
+        width: 96%;
+        padding: 2%;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav select {
+        font-size: 16px;
+        display: inline-block;
+        width: 300px;
+        height: 25px;
+        margin: 5px 0;
+        overflow: hidden;
+        background: #EFEFEF;
+        float: none;
+    }
+
+    #fb-comments {
+        display: none;
+    }
+}

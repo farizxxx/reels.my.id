@@ -1,0 +1,12 @@
+{{ define "main" }}
+    <div id="content">
+        {{- partial "breadcrumb.html" . -}}
+        <div class="entry" style="height: auto !important;">
+            <h1 class="stitle">{{ .Title }}</h1>
+            {{ .Content }}
+        </div>
+        {{- partial "share.html" . -}}
+        {{- partial "related.html" . -}}
+
+    </div>
+{{ end }}

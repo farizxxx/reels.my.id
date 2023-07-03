@@ -1,0 +1,21 @@
+<nav id="main-menu">
+    <ul class="main-menu">
+        {{ $menuLength := len .Site.Menus.main }}
+        {{ range $index, $element := .Site.Menus.main }}
+            <li {{ if eq (add $index 1) $menuLength }}class="last"{{ end }}>
+                <a href="{{ $element.URL }}" title="{{ $element.Name }}">
+                    {{ $element.Name }}
+                </a>
+            </li>
+        {{ end }}
+    </ul>
+    <select onchange="location = this.value;">
+        <option selected="selected" value="">Main Menu</option>
+        {{ range .Site.Menus.main }}
+        <option value="{{ .URL }}" title="{{ .Name }}">
+            {{ .Name }}
+        </option>
+        {{ end }}
+    </select>
+</nav>
+<div class="clearfix"></div>

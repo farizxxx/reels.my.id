@@ -1,0 +1,44 @@
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+<div class="pagenavi">
+    <div class="Nav">
+
+    <!-- if has prev     -->
+    {{ if $pag.HasPrev }}
+    <a href="{{ $pag.Prev.URL }}" rel="prev">&lArr;</a>
+    {{ end }}
+
+    <!-- Don't show on 1st and 2nd page -->
+    {{ if and (ne $pag.PageNumber 1) (ne $pag.PageNumber 2) (ne $pag.PageNumber 3) }}
+    <a href="{{ $pag.First.URL }}" rel="first">1</a>
+    ...
+    {{ end }}
+
+
+    {{ range $pag.Pagers }}
+        {{ if eq . $pag }} <!-- Current Page -->
+        <strong class="on">{{ .PageNumber }}</strong>
+        {{ else if and (ge .PageNumber (sub $pag.PageNumber 2)) (le .PageNumber (add $pag.PageNumber 2)) }}
+        {{ $.Scratch.Set "dot_rendered" false }} <!-- Render prev 2 page and next 2 pages -->
+        <a href="{{ .URL }}">{{ .PageNumber }}</a>
+        {{ else if eq ($.Scratch.Get "dot_rendered") false }} <!-- render skip pages -->
+        {{ $.Scratch.Set "dot_rendered" true }}
+        {{ end }}
+    {{ end }}
+
+
+
+    <!-- Don't show on last and 2nd last page -->
+    {{ if and (lt $pag.PageNumber (sub $pag.TotalPages 2)) }}  
+    ...
+    <a href="{{ $pag.Last.URL }}" rel="last">{{ $pag.TotalPages }}</a>
+    {{ end }}
+
+    <!-- if has next     -->
+    {{ if $pag.HasNext }}
+    <a href="{{ $pag.Next.URL }}" rel="next">&rArr;</a>
+    {{ end }}
+    </div>
+    <div class="clearfix"></div>
+</div>  
+{{ end }}

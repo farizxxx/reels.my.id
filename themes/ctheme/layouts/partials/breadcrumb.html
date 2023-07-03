@@ -1,0 +1,19 @@
+<div class="breadcrumbs">
+    <span>
+        <a href="/" title="Home">Home</a>
+    </span> » 
+
+    {{ with .Params.categories }}
+    <span>
+    {{ range . }}
+        <a href="{{ . | printf "%s%s" "/categories/" | urlize | lower | relLangURL }}" title="{{ . }}">
+                {{ . }}
+        </a>
+    {{ end }}
+    </span> » 
+    {{ end }}
+
+    <span class="current">
+        {{ .Title }}
+    </span>
+</div>

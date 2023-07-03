@@ -1,0 +1,28 @@
+<div class="sharebar">
+    <div class="social-container">
+        <div class="related_posts">
+            <h3>Related Posts</h3>
+            <ul>
+                {{ range first 5 (shuffle (where (where .Site.RegularPages "Type" "!=" "pages" ) "Title" "!=" .Title )) }}
+                <li>
+                    <div class="post-thumb">
+                        <a href="{{ .RelPermalink }}" rel="bookmark" title="{{ .Title }}">
+                            <img data-src="{{ .Params.thumbnail }}" class="thumb lozad" alt="{{ .Title }}" title="{{ .Title }}">
+                        </a>
+                    </div>
+                    <h4>
+                        <a href="{{ .RelPermalink }}" rel="bookmark" title="{{ .Title }}">{{ .Title }}</a>
+                    </h4>
+                    <p>
+                        {{ if gt (len .Summary) 160	}}
+                        {{slicestr .Summary 0 160}}...
+                        {{ end }}
+                    </p>
+                </li>
+                {{end}}
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="clearfix"></div>

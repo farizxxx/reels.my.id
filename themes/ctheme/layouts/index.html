@@ -1,0 +1,25 @@
+{{ define "main" }}
+    <div id="content">
+        <h1 class="breadcrumbs">{{ .Site.Params.Title }} - {{ .Site.Params.tagline }}</h1>
+        {{ $paginator := .Paginate (where .Site.RegularPages "Type" "!=" "pages") }}
+        {{ range $index, $page := $paginator.Pages }}
+        <div class="post">
+            <h2>
+                <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+            </h2>
+            <div class="post-thumb">
+                <a href="{{ .Permalink }}" title="{{ .Title }}">
+                    <img data-src="{{ .Params.thumbnail }}" class="thumb lozad" alt="{{ .Title }}" title="{{ .Title }}">
+                </a>
+            </div>
+            <p>
+                {{ if gt (len .Summary) 200	}}
+                {{slicestr .Summary 0 200}}...
+                {{ end }}
+            </p>
+        </div>
+        <div class="clearfix"></div>      
+        {{ end }}   
+        {{ partial "pagination.html" . }}
+    </div>
+{{ end }}

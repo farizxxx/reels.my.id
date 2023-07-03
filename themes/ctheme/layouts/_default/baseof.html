@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode }}">
+    {{- partial "head.html" . -}}
+    <body>
+        <div id="wrap">
+            {{- partial "header.html" . -}}
+                <div id="main">
+                    {{- block "main" . }}{{- end }}
+                    {{- partial "sidebar.html" . -}}
+                </div>
+            <div class="clearfix"></div>
+            {{- partial "footer.html" . -}}
+        </div>
+    </body>
+</html>

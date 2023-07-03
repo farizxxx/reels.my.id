@@ -1,0 +1,38 @@
+<div class="clearfix"></div>
+<footer id="footer">
+    <div class="inner">
+        <div class="copyright">Copyright © 2020-2023 - <a href="{{ .Site.BaseURL }}" title="{{ .Site.Params.Title }}">{{ .Site.Params.Title }}. </a> All Rights Reserved.</div>
+    </div>
+    <div class="clearfix"></div>
+</footer>
+</div>
+
+  <div class="backtotop hider showe"><i class="fa fa-angle-up"></i></div>
+  <script>
+    const backToTopButton = document.querySelector('.backtotop');
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 500) {
+        backToTopButton.style.display = 'block';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    });
+  </script>
+  {{ if eq .Type "posts" }}
+  <!-- <script src="/ads/ads.js"></script> -->
+  {{ end }}
+
+  <script>
+    const observer = lozad();
+    observer.observe();
+  </script>
+
+
+

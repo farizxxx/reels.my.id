@@ -1,0 +1,55 @@
+<div id="sidebar">
+    <div class="widget">
+        <div class="inner">
+            <h3 class="title">
+                <span>Search</span>
+            </h3>
+            <form role="search" method="get" id="searchform" class="searchform" action="/search/">
+                <div>
+                    <input type="text" value="" name="s" id="s">
+                    <input type="submit" id="searchsubmit" value="Search">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="widget">
+        <div class="inner">
+            <h3 class="title">
+                <span>Popular Posts</span>
+            </h3>
+            <ul>
+                {{ range first .Site.Params.recentposts (shuffle (where (where .Site.RegularPages "Type" "!=" "pages" ) "Title" "!=" .Title )) }}
+                <li>
+                    <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+                </li>
+                {{- end }}
+            </ul>
+        </div>
+    </div>
+
+
+    {{- $categories := .Site.Taxonomies.categories }}
+    {{- if gt (len $categories) 0 }}
+    <div class="widget">
+        <div class="inner">
+            <h3 class="title">
+                <span>categories</span>
+            </h3>
+            <ul>
+            {{- range $name, $taxonomy := $categories }}
+                {{- with $.Site.GetPage (printf "/categories/%s" $name) }}
+                <li>
+                    <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+                    <span>({{ $taxonomy.Count }})</span>
+                </li>
+                {{- end }}
+            {{- end }}
+            </ul>
+        </div>
+    </div>
+    {{- end }}
+
+
+</div>
+<div class="clearfix"></div>
