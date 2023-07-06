@@ -1,8 +1,8 @@
 baseURL = 'https://reels.my.id/'
 languageCode = 'en-US'
 defaultContentLanguage = 'en-us'
-title = 'reels.my.id' # Title on Meta Tags
-paginate = 10
+title = 'Segala Informasi Tips, Trik, dan Fakta Menarik di Reels.my.id' # Title on Meta Tags
+paginate = 20
 theme = 'ctheme'
 enableRobotsTXT = true
 disableKinds = ['section', 'posts']
@@ -30,8 +30,8 @@ disableHugoGeneratorInject = true
 
 [params]
   title = 'reels.my.id' # Title on Header
-  tagline = 'reels.my.id'
-  description = 'Informasi terbaru tentang kehidupan berumah tangga'
+  tagline = 'Segala Informasi Tips, Trik, dan Fakta Menarik'
+  description = 'Reels.my.id adalah sumber terpercaya yang menyajikan beragam tips, trik, dan informasi umum terkini. Jelajahi blog kami dan temukan panduan praktis yang akan memperkaya pengetahuan Anda.'
   recentposts = 10 
 
 [menu]
