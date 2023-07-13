@@ -12,6 +12,7 @@
                     <img data-src="{{ .Params.thumbnail }}" class="thumb lozad" alt="{{ .Title }}" title="{{ .Title }}">
                 </a>
             </div>
+            {{- partial "postheader.html" . -}}
             <p>
                 {{ if gt (len .Summary) 200	}}
                 {{slicestr .Summary 0 200}}...

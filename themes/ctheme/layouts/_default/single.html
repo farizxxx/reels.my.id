@@ -3,6 +3,7 @@
         {{- partial "breadcrumb.html" . -}}
         <div class="entry" style="height: auto !important;">
             <h1 class="stitle">{{ .Title }}</h1>
+            {{- partial "postheader.html" . -}}
             {{ .Content }}
         </div>
         {{- partial "share.html" . -}}

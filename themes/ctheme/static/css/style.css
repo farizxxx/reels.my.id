@@ -521,10 +521,16 @@ h1.stitle {
 }
 
 #sidebar .widget ul li {
-    background: url(/images/list.png) no-repeat scroll 5px 10px transparent;
+    background: url(/img/list.svg) no-repeat scroll 5px 10px transparent;
     padding: 4px 4px 4px 15px;
     border-bottom: 1px solid #efefef;
 }
+
+.pixel {
+    fill: var(--text-color);
+    stroke: none;
+}
+
 
 #sidebar table {
     width: 100%;
@@ -856,6 +862,21 @@ h1.stitle {
 
 #searchform {
     margin-top: 15px;
+}
+
+.meta {
+    font-size: 11px;
+    color: #898989;
+    margin-bottom: 10px;
+}
+
+.meta span {
+    margin-right: 5px;
+}
+
+.meta svg {
+    width: 10px;
+    height: 10px;
 }
 /* ------------------------------------------- START Responsive CSS ------------------------------------------- */
 

@@ -33,6 +33,7 @@ disableHugoGeneratorInject = true
   tagline = 'Segala Informasi Tips, Trik, dan Fakta Menarik'
   description = 'Reels.my.id adalah sumber terpercaya yang menyajikan beragam tips, trik, dan informasi umum terkini. Jelajahi blog kami dan temukan panduan praktis yang akan memperkaya pengetahuan Anda.'
   recentposts = 10 
+  author = "Reels Creator"
 
 [menu]
 
