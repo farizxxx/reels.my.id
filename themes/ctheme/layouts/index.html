@@ -1,6 +1,6 @@
 {{ define "main" }}
     <div id="content">
-        <h1 class="breadcrumbs">{{ .Site.Params.Title }} - {{ .Site.Params.tagline }}</h1>
+        {{- partial "breadcrumb.html" . -}}
         {{ $paginator := .Paginate (where .Site.RegularPages "Type" "!=" "pages") }}
         {{ range $index, $page := $paginator.Pages }}
         <div class="post">

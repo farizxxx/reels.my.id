@@ -521,16 +521,10 @@ h1.stitle {
 }
 
 #sidebar .widget ul li {
-    background: url(/img/list.svg) no-repeat scroll 5px 10px transparent;
+    background: url(/svg/list.svg) no-repeat scroll 5px 10px transparent;
     padding: 4px 4px 4px 15px;
     border-bottom: 1px solid #efefef;
 }
-
-.pixel {
-    fill: var(--text-color);
-    stroke: none;
-}
-
 
 #sidebar table {
     width: 100%;
