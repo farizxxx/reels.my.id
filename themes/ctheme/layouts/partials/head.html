@@ -5,21 +5,31 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}rss.xml">
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}</title>
-    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ if gt (len .Summary) 160 }}{{ slicestr .Summary 0 160 }}{{ end }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ else }}{{ if gt (len .Summary) 160 }}{{ slicestr .Summary 0 160 }}{{ end }}{{ end }}{{ end }}">
-    {{ if .IsHome }}
-    <link rel="canonical" href="{{ .Site.BaseURL }}" />
-    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    <title>
+        {{ if .IsHome }}
+            {{- $.Site.Title -}}
+        {{ else if .IsPage }}
+            {{ .Title }} | {{ .Site.Params.Title }}
+        {{ else }}
+            {{ .Title }} | {{ .Site.Params.Title }}
+        {{ end }}
+    </title>
+
+    <meta name="description" content="{{if .Description}}{{.Description}}{{else if .IsPage}}{{if gt (len .Summary) 160}}{{.Summary | slice 0 160}}{{else}}{{.Title}}{{end}}{{else if .IsHome}}{{.Site.Params.description}}{{else}}{{.Title}}{{end}}">
+
+    <link rel="canonical" href="{{if .IsHome}}{{.Site.BaseURL}}{{else}}{{.Permalink}}{{end}}" />
+    
+    {{ if .IsHome }}<meta property="og:site_name" content="{{ .Site.Title }}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ .Site.Title }}" />
     <meta property="og:description" content="{{ .Site.Params.description }}" />
     <meta property="og:url" content="{{ .Site.BaseURL }}" />
-    <meta property="og:image" content="{{ .Site.BaseURL }}images/cover.jpg" />
+    <meta property="og:image" content="{{ .Site.BaseURL }}icon.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="{{ .Site.Title }}" />
     <meta name="twitter:description" content="{{ .Site.Params.description }}" />
     <meta name="twitter:url" content="{{ .Site.BaseURL }}" />
-    <meta name="twitter:image" content="{{ .Site.BaseURL }}images/cover.jpg" />
+    <meta name="twitter:image" content="{{ .Site.BaseURL }}icon.png" />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -30,13 +40,13 @@
                 "url": "{{ .Site.BaseURL }}",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "{{ .Site.BaseURL }}images/icon.png"
+                    "url": "{{ .Site.BaseURL }}icon.png"
                 }
             },
             "url": "{{ .Site.BaseURL }}",
             "image": {
                 "@type": "ImageObject",
-                "url": "{{ .Site.BaseURL }}images/icon.png",
+                "url": "{{ .Site.BaseURL }}icon.png",
                 "width": 192,
                 "height": 192
             },
@@ -46,16 +56,15 @@
             },
             "description": "{{ .Site.Params.description }}"
         }
-    </script>{{ else }}<link rel="canonical" href="{{ .Permalink }}" />
-    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    </script>{{ else }}<meta property="og:site_name" content="{{ .Site.Title }}" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ .Title }}" />
-    <meta property="og:description" content="{{with .Params.description}}{{.}}{{else}}{{if gt (len .Summary) 160}}{{slicestr .Summary 0 160}}{{end}}{{end}}" />
+    <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ if gt (len .Summary) 160 }}{{ .Summary | slice 0 160 }}{{ else }}{{ .Title }}{{ end }}{{ end }}" />
     <meta property="og:url" content="{{ .Permalink }}" />
     <meta property="og:image" content="{{ .Params.image }}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="{{ .Title }}" />
-    <meta name="twitter:description" content="{{with .Params.description}}{{.}}{{else}}{{if gt (len .Summary) 160}}{{slicestr .Summary 0 160}}{{end}}{{end}}" />
+    <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ if gt (len .Summary) 160 }}{{ .Summary | slice 0 160 }}{{ else }}{{ .Title }}{{ end }}{{ end }}" />
     <meta name="twitter:url" content="{{ .Permalink }}" />
     <meta name="twitter:image" content="{{ .Params.image }}" />
     <script type="application/ld+json">
@@ -67,14 +76,15 @@
                 "@id":"{{ .Site.BaseURL }}"
             },
             "headline":"{{ .Title }}" ,
-            "description":"{{with .Params.description}}{{.}}{{else}}{{if gt (len .Summary) 160}}{{slicestr .Summary 0 160}}{{end}}{{end}}",
+            "description":"{{ if .Description }}{{ .Description }}{{ else }}{{ if gt (len .Summary) 160 }}{{ .Summary | slice 0 160 }}{{ else }}{{ .Title }}{{ end }}{{ end }}",
             "image":"{{ .Params.image }}",  
             "url":"{{ .Permalink }}",
             "datePublished":"{{ .Params.date }}",
             "dateModified":"{{ .Params.date }}",
             "author": {
                 "@type":"Person",
-                "name":"{{ .Site.Title }}"
+                "name":"{{ .Site.Params.Author }}"
+                "url":"{{ .Site.BaseURL }}#author"
             }
         }</script>{{ end }}
         <script type="text/javascript" src="/js/lozad.min.js"></script>

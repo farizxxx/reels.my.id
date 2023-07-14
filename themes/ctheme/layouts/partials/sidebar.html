@@ -30,24 +30,33 @@
 
 
     {{- $categories := .Site.Taxonomies.categories }}
-    {{- if gt (len $categories) 0 }}
-    <div class="widget">
-        <div class="inner">
-            <h3 class="title">
-                <span>categories</span>
-            </h3>
-            <ul>
-            {{- range $name, $taxonomy := $categories }}
-                {{- with $.Site.GetPage (printf "/categories/%s" $name) }}
-                <li>
-                    <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
-                    <span>({{ $taxonomy.Count }})</span>
-                </li>
+    {{- $categoryList := slice }}
+    {{- range $name, $taxonomy := $categories }}
+        {{- with $.Site.GetPage (printf "/categories/%s" $name) }}
+            {{- $categoryList = $categoryList | append (dict "Page" . "Count" $taxonomy.Count) }}
+        {{- end }}
+    {{- end }}
+    {{- $categoryList = shuffle $categoryList }}
+    {{- $categoryCounter := 0 }}
+    {{- if gt (len $categoryList) 0 }}
+        <div class="widget">
+            <div class="inner">
+                <h3 class="title">
+                    <span>Categories</span>
+                </h3>
+                <ul>
+                {{- range $category := $categoryList }}
+                    {{- if lt $categoryCounter 10 }}
+                        {{- $categoryCounter = add $categoryCounter 1 }}
+                        <li>
+                            <a href="{{ $category.Page.RelPermalink }}" title="{{ $category.Page.Title }}">{{ $category.Page.Title }}</a>
+                            <span>({{ $category.Count }})</span>
+                        </li>
+                    {{- end }}
                 {{- end }}
-            {{- end }}
-            </ul>
+                </ul>
+            </div>
         </div>
-    </div>
     {{- end }}
 
 
