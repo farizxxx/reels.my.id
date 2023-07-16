@@ -16,7 +16,9 @@
                 </a>
             </div>
             {{ end }}
-            {{- partial "postheader.html" . -}}
+            {{ if ne .Section "categories" }}
+                {{- partial "postheader.html" . -}}
+            {{ end }}
             <p>
                 {{ if gt (len .Summary) 200	}}
                 {{slicestr .Summary 0 200}}...
